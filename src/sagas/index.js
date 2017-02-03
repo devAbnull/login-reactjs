@@ -47,6 +47,11 @@ export function * loginBg(){
 	while(true){
 		let request = yield take(LOGIN_REQ)
 		let username = request.data
+		if (request.data === ''){
+			yield put({type: FAILURE, error:'Please provide username!'})
+			forwardTo('/')
+		}
+		else{
 		console.log('Got username'+username)
 		let winner = yield race({
 			auth: call(authorize, username),
@@ -66,6 +71,7 @@ export function * loginBg(){
 			yield call(logout)
 			forwardTo('/')
 		}
+	}
 	}
 }
 

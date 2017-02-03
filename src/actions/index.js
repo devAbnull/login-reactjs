@@ -18,10 +18,6 @@ export function changeForm(newFormState) {
 	return {type: CHANGE_FORM, newFormState}
 }
 
-export function sendingReq(sending) {
-	return {type: SENDING_REQ, sending}
-}
-
 export function failure(error) {
 	return {type: FAILURE, error}
 }
