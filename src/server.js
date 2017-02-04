@@ -33,24 +33,33 @@ let server = {
 		}
 		
 		resolve['auth'] = true, 
-		resolve['token']= Math.random().toString(36).substring(7)
+		localstorage.token= Math.random().toString(36).substring(7)
 		resolve['noVisits'] = users[username]
-		
+		localstorage.activeUser = JSON.stringify({username: username,noVisits: users[username]})
 		console.log('resolve is '+resolve)
-		return resolve
+		return users[username]
 		
 	},
+	loggedIn(){
+		return !!localstorage.token
+	},
+	getformState(){
+		if(localstorage.activeUser === undefined )
+			return {username:'', noVisits:0}
+		return JSON.parse(localstorage.activeUser)
+	},
+
+	
 
 	chkUser(username){
 		return !(users[username] === undefined)
 	},
 
 	logout(){
-		return new Promise(resolve => {
-			localstorage.removeItem('token')
-			localstorage.removeItem('activeUser')
-			resolve(true)
-		})
+		
+		localstorage.removeItem('token')
+		localstorage.removeItem('activeUser')
+		
 	}
 
 }

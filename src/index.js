@@ -5,7 +5,7 @@ import {createStore} from 'redux'
 
 import reducer from './reducers'
 import {clearError} from './actions'
-import App from './components/App'
+import App from './App'
 
 
 console.log('hey!! mm')

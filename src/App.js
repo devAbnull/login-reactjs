@@ -8,7 +8,7 @@ import {logout,
 	changeForm,
 	clearError,
 	failure,
-	setAuth} from '../actions'
+	setAuth} from './actions'
 
 class App extends Component{
 	constructor(props) {
@@ -60,9 +60,7 @@ class App extends Component{
 	}
 	
 	_login_render(){
-			let {dispatch} = this.props
-			let {formState, sending, error} = this.props.data
-			console.log('[Login] render'+sending)
+			
 		return(
 			<div>
 			<form className='form' onSubmit={this._onLogin}>

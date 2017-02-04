@@ -2,7 +2,6 @@ export const LOGIN_REQ = 'LOGIN_REQ'
 export const FAILURE = 'FAILURE'
 export const SET_AUTH = 'SET_AUTH'
 export const CHANGE_FORM = 'CHANGE_FORM'
-export const SENDING_REQ = 'SENDING_REQ'
 export const CLEAR_ERROR = 'CLEAR_ERROR'
 export const LOGOUT = 'LOGOUT'
 
